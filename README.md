@@ -17,4 +17,4 @@ The following **additional** features are implemented:
 
 - [ ] Custom CSS added
 
-![Cookie Clicker Game](./CookieClicker/CookieClickerDemo.jpg)
+![Cookie Clicker Game](./CookieClickerDemo.jpg)
