@@ -60,7 +60,7 @@ buyClickPower.addEventListener("click", function () {
         //Update click price
         clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.33);
 
-        //Update click level
+        //Update click power
         clickPower += 1 * Math.floor(clickPowerLevelNumber * 1.05);
 
         //update Click Power
