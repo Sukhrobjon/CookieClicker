@@ -83,14 +83,75 @@ let refreshPowerClick = function () {
     clickPowerMultiple.innerHTML = clickPower;
 }
 
-// Letting the user know there is no enough cookies in the store
-const notEnoughCookies = function () {
-    alert("You don't have enough cookies");
-};
-
 /********************************
  
             GRANDMAS
 
  ********************************/
 
+//set default values
+let grandmaPower = 50; // 50
+let grandmaPriceAmount = 500; // 500
+let grandmaLevelNumber = 0;
+let grandmaAuto = false;
+
+//declare DOM variables
+let buyGrandma = document.getElementById('buy-grandma');
+let grandmaPrice = document.getElementById('grandma-price');
+let grandmaLevel = document.getElementById('grandma-level');
+let grandmaMultiple = document.getElementById('grandma-multiple');
+
+
+//buy a grandma
+buyGrandma.addEventListener("click", function () {
+    //make sure we have enough cookies and subtract our cookies from the price
+    if(cookieCount >= grandmaPriceAmount){
+        
+        cookieCount -= grandmaPriceAmount;
+        refreshCookieCount();
+
+        //upgrade power level
+        grandmaLevelNumber += 1;
+
+        //update price
+        grandmaPriceAmount = Math.floor(grandmaPriceAmount * 1.33);
+        //update grandma power
+        grandmaPower += 10 + Math.floor(grandmaLevelNumber * 1.33);
+
+        //turn autoGrandma on!
+        autoGrandma = true
+        autoGrandmaStart();
+
+
+        //refresh shop item
+        refreshGrandma();
+    } else {
+        notEnoughCookies();
+    }
+});
+
+const refreshGrandma = () => {
+    grandmaLevel.innerHTML = grandmaLevelNumber;
+    grandmaPrice.innerHTML = grandmaPriceAmount;
+    grandmaMultiple.innerHTML = grandmaPower - 10;// alert the user they bought some grannies
+    let numOfMilliSecs = 1000;
+    // alert the user they bought some grannies
+    setTimeout(() => {
+        alert('You bought some grandmas on the black market!');
+    }, numOfMilliSecs);
+
+};
+const autoGrandmaStart = () => {
+    const numOfMilliseconds = 1000;
+    let grandmaInt = window.setInterval(() => {
+        cookieCount += grandmaPower;
+        refreshCookieCount();
+    }, numOfMilliseconds);
+};
+
+
+
+// Letting the user know there is no enough cookies in the store
+const notEnoughCookies = function () {
+    alert("You don't have enough cookies");
+};
