@@ -16,3 +16,5 @@ The following **required** functionalities are completed:
 The following **additional** features are implemented:
 
 - [ ] Custom CSS added
+
+![Cookie Clicker Game](./CookieClicker/CookieClickerDemo.jpg)
