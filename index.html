@@ -41,54 +41,32 @@
 
             // Buy click power
             buyClickPower.addEventListener("click", function () {
-                    if (cookieCount >= clickPowerPriceAmount) {
-                        console.log("Item succesfully Bought");
-                         //subtract cookies from the price of the item
-                        cookieCount -= clickPowerPriceAmount;
-                        // clickPowerLevel +=1;
-                        refreshCookieCount();
+                if (cookieCount >= clickPowerPriceAmount) {
+                    console.log("Item succesfully Bought");
+                        //subtract cookies from the price of the item
+                    cookieCount -= clickPowerPriceAmount;
+                    // clickPowerLevel +=1;
+                    refreshCookieCount();
 
 
-                        // upgrade power level 
-                        clickPowerLevelNumber += 1;
+                    // upgrade power level 
+                    clickPowerLevelNumber += 1;
 
-                        //Update click price
-                        clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.33);
+                    //Update click price
+                    clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.33);
 
-                        //Update click price
-                        clickPowerPrice = Math.floor(clickPowerPrice * 1.33);
+                    //Update click price
+                    clickPowerPrice = Math.floor(clickPowerPrice * 1.33);
 
-                        //update Click Power
-                        clickPower += 1;
+                    //update Click Power
+                    clickPower += 1;
 
-                        // refresh shop item
-                        refreshPowerClick();
-                    } else {
-                        console.log("You don't have enough cookies!");
-                    }
+                    // refresh shop item
+                    refreshPowerClick();
+                } else {
+                    notEnoughCookies();
+                }
 
-                //     if (cookieCount >= clickPowerPriceAmount) {
-                //     //subtract cookies from the price of the item
-                //     cookieCount -= clickPowerPriceAmount;
-                //     // clickPowerLevel +=1;
-                //     refreshCookieCount();
-            
-
-                //     // upgrade power level 
-                //     clickPowerLevelNumber += 1;
-
-                //     //Update click price
-                //     clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.33);
-
-                //     //Update click price
-                //     clickPowerPrice = Math.floor(clickPowerPrice * 1.33);
-
-                //     //update Click Power
-                //     clickPower += 1;
-
-                //     // refresh shop item
-                //     refreshPowerClick();
-                // } 
             });
 
             
@@ -103,6 +81,9 @@
                 clickPowerPrice.innerHTML = clickPowerPriceAmount;
                 clickPowerMultiple.innerHTML = clickPower;
             }
+            const notEnoughCookies = function () {
+                alert("You don't have enough cookies");
+            };
 
         </script>
     </body>
